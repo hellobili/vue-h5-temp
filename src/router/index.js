@@ -3,11 +3,13 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
+// 路由懒加载
+const _import_ = file => () => import('../views/' + file + '.vue')
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: _import_('Home'),
     component: Home
   },
   {
